@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    window.GeneralBalance = 1000
+    window.GeneralBalance = parseFloat(localStorage.getItem('balance')) || 10000
 
     // general blocks
     window.TotalWithdrawalSum = 0
