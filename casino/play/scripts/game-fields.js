@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (window.gameState.gameField[index]) {
                 // Попали на ловушку - игра окончена
-                button.innerHTML = '<img width="60" height="60" src="./../images/cross.svg">';
+                button.innerHTML = '<img width="60" height="60" src="images/cross.svg">';
 
                 // Показываем сообщение о проигрыше
                 if (window.showGameStateMessage) {
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
             } else {
                 // Безопасная ячейка
-                button.innerHTML = '<img width="60" height="60" src="./../images/star.svg">';
+                button.innerHTML = '<img width="60" height="60" src="images/star.svg">';
                 window.gameState.openedCells++
                 
                 // Обновляем сумму выигрыша
@@ -63,9 +63,9 @@ function revealAllTraps() {
             button.classList.add('opened');
 
             if (window.gameState.gameField[index]) {
-                button.innerHTML = '<img width="60" height="60" src="./../images/cross.svg">';
+                button.innerHTML = '<img width="60" height="60" src="images/cross.svg">';
             } else {
-                button.innerHTML = '<img width="60" height="60" src="./../images/star.svg">';
+                button.innerHTML = '<img width="60" height="60" src="images/star.svg">';
             }
         }
     });
@@ -108,7 +108,7 @@ function resetGameField() {
     
     cellButtons.forEach(button => {
         button.classList.remove('opened');
-        button.innerHTML = '<img width="56" height="56" src="./../images/square.svg">';
+        button.innerHTML = '<img width="56" height="56" src="images/square.svg">';
         // button.innerHTML = '';
         // button.style.opacity = '';
     });

@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadWithdrawalContent() {
-    const htmlFilePath = './../../modal-windows/withdrawal.html';
+    const htmlFilePath = 'withdrawal.html';
 
     return fetch(htmlFilePath)
         .then(response => {
@@ -218,7 +218,7 @@ function loadWithdrawalContent() {
 }
 
 function loadWaitingContent() {
-    const htmlFilePath = './../../modal-windows/waiting.html';
+    const htmlFilePath = 'waiting.html';
 
     return fetch(htmlFilePath)
         .then(response => {

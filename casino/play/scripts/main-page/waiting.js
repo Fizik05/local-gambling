@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadModalContent() {
-    const htmlFilePath = './../../modal-windows/personal.account.html';
+    const htmlFilePath = 'personal.account.html';
 
     return fetch(htmlFilePath)
         .then(response => {

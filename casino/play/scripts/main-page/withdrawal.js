@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadPaymentContent() {
-    const htmlFilePath = './../../modal-windows/payment.html';
+    const htmlFilePath = 'payment.html';
 
     return fetch(htmlFilePath)
         .then(response => {

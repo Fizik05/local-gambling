@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Функции для загрузки HTML содержимого в модальное окно
 function loadModalContent() {
-    const htmlFilePath = './../../modal-windows/personal.account.html';
+    const htmlFilePath = 'modal-windows/personal.account.html';
 
     return fetch(htmlFilePath)
         .then(response => {
@@ -126,7 +126,7 @@ function loadModalContent() {
 }
 
 function loadWithdrawalContent() {
-    const htmlFilePath = './../../modal-windows/withdrawal.html';
+    const htmlFilePath = 'modal-windows/withdrawal.html';
 
     return fetch(htmlFilePath)
         .then(response => {
@@ -141,7 +141,7 @@ function loadWithdrawalContent() {
 }
 
 function loadHistoryContent() {
-    const htmlFilePath = './../../modal-windows/history.html';
+    const htmlFilePath = 'modal-windows/history.html';
 
     return fetch(htmlFilePath)
         .then(response => {
