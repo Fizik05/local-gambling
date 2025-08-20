@@ -110,10 +110,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Обработчик прямого ввода в поле
         amountField.addEventListener('input', function() {
-            let value = parseInt(window.gameState.currentBet) || 1;
+            let value = parseInt(this.value) || 1;
+            // let value = parseInt(window.gameState.currentBet) || 1;
             
             // Ограничиваем значения
-            if (value < 1) value = 1;
+            if (value < 1) value = 5;
             if (value > window.gameState.balance) value = window.gameState.balance;
             
             window.gameState.currentBet = value;
@@ -443,6 +444,8 @@ document.addEventListener('DOMContentLoaded', function() {
         playBtn.className = "app-button big games-blue-bg text-white cursor-pointer block h-full w-full";
         playBtn.disabled = false;
         playBtn.textContent = "Играть";
+
+        amountField.value = window.gameState.currentBet
         
         // Удаляем обработчик "Забрать" и возвращаем обработчик "Играть"
         playBtn.removeEventListener('click', cashoutHandler);
