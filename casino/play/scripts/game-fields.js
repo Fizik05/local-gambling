@@ -68,7 +68,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Функция показа всех ячеек при завершении
 function revealAllTraps() {
     const cellButtons = document.querySelectorAll('[id^="cellButton"]');
-    
+    images = []
+
     cellButtons.forEach((button, index) => {
         if (!button.classList.contains('opened')) {
             button.classList.add('opened');
@@ -77,14 +78,38 @@ function revealAllTraps() {
                 fetch('images/cross.svg')
                     .then(response => response.text())
                     .then(svgText => {
-                        button.innerHTML = svgText;
+                        images[index] = svgText;
+                        // button.innerHTML = svgText;
                     });
             } else {
                 fetch('images/star.svg')
                     .then(response => response.text())
                     .then(svgText => {
-                        button.innerHTML = svgText;
+                        images[index] = svgText;
+                        // button.innerHTML = svgText;
                     });
+            }
+        }
+    })
+    
+    cellButtons.forEach((button, index) => {
+        if (!button.classList.contains('opened')) {
+            button.classList.add('opened');
+
+            if (window.gameState.gameField[index]) {
+                button.innerHTML = images[index]
+                // fetch('images/cross.svg')
+                //     .then(response => response.text())
+                //     .then(svgText => {
+                //         button.innerHTML = svgText;
+                //     });
+            } else {
+                button.innerHTML = images[index]
+                // fetch('images/star.svg')
+                //     .then(response => response.text())
+                //     .then(svgText => {
+                //         button.innerHTML = svgText;
+                //     });
             }
         }
     });
