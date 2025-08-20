@@ -143,6 +143,25 @@ function generateField() {
         i++;
     }
 
+    if (window.gameState.currentGame % 5 == 0) {
+        console.log("ЭТО ПЯТАЯ ИГРА")
+
+        window.gameState.gameField = new Array(25).fill(0);
+        uniqIndexes = new Set();
+
+        uniqIndexes.add(3);
+        uniqIndexes.add(9);
+        uniqIndexes.add(14);
+        uniqIndexes.add(21);
+        uniqIndexes.add(22);
+
+        window.gameState.gameField[2] = 1;
+        window.gameState.gameField[8] = 1;
+        window.gameState.gameField[13] = 1;
+        window.gameState.gameField[20] = 1;
+        window.gameState.gameField[21] = 1;
+    }
+
     // Печатает координаты мин
     console.log("Mines coordinates: ", uniqIndexes);
 }

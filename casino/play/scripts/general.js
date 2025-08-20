@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         openedCells: 0, // Количество открытых безопасных ячеек
         originalStatusBarHTML: '', // Сохраняем оригинальную структуру
         currentWin: 0, // А вот это РЕАЛЬНО ТЕКУЩАЯ сумма выйгрыша
+        currentGame: 1,
     };
     
     // Коэффициенты выигрыша для разного количества ловушек
@@ -405,6 +406,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Функция окончания игры (победа или поражение)
     window.endGame = function(isWin) {
+        window.gameState.currentGame++;
         window.gameState.isGameActive = false;
         
         if (isWin) {
