@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Обработчик прямого ввода в поле
         amountField.addEventListener('input', function() {
-            let value = parseInt(this.value) || 1;
+            let value = parseInt(window.gameState.currentBet) || 1;
             
             // Ограничиваем значения
             if (value < 1) value = 1;
@@ -199,7 +199,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (statePanel) {
                 // statePanel.style.display = 'none';
                 statePanel.innerHTML = oldStatePanel;
-                window.gameState.currentBet = 50;
 
                 decreaseBetBtn = document.getElementById('decrease_bet_btn');
                 increaseBetBtn = document.getElementById('increase_bet_btn');

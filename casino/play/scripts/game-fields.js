@@ -17,15 +17,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (window.gameState.gameField[index]) {
                 // Попали на ловушку - игра окончена
-                button.innerHTML = '<img width="60" height="60" src="images/cross.svg">';
-
-                // Показываем сообщение о проигрыше
-                if (window.showGameStateMessage) {
-                    window.showGameStateMessage(false, 3000);
-                }
+                fetch('images/cross.svg')
+                    .then(response => response.text())
+                    .then(svgText => {
+                        button.innerHTML = svgText;
+                    });
                 
                 // Показываем все ловушки
-                revealAllTraps();
+                setTimeout(() => {
+                    // Показываем сообщение о проигрыше
+                    if (window.showGameStateMessage) {
+                        window.showGameStateMessage(false, 3000);
+                    }
+
+                    revealAllTraps();
+                }, 500)
+                // revealAllTraps();
                 
                 // Заканчиваем игру (поражение)
                 setTimeout(() => {
@@ -39,7 +46,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 
             } else {
                 // Безопасная ячейка
-                button.innerHTML = '<img width="60" height="60" src="images/star.svg">';
+                fetch('images/star.svg')
+                    .then(response => response.text())
+                    .then(svgText => {
+                        button.innerHTML = svgText;
+                    });
                 window.gameState.openedCells++
                 
                 // Обновляем сумму выигрыша
@@ -63,9 +74,17 @@ function revealAllTraps() {
             button.classList.add('opened');
 
             if (window.gameState.gameField[index]) {
-                button.innerHTML = '<img width="60" height="60" src="images/cross.svg">';
+                fetch('images/cross.svg')
+                    .then(response => response.text())
+                    .then(svgText => {
+                        button.innerHTML = svgText;
+                    });
             } else {
-                button.innerHTML = '<img width="60" height="60" src="images/star.svg">';
+                fetch('images/star.svg')
+                    .then(response => response.text())
+                    .then(svgText => {
+                        button.innerHTML = svgText;
+                    });
             }
         }
     });
@@ -108,7 +127,12 @@ function resetGameField() {
     
     cellButtons.forEach(button => {
         button.classList.remove('opened');
-        button.innerHTML = '<img width="56" height="56" src="images/square.svg">';
+        // button.innerHTML = '<img width="56" height="56" src="images/square.svg">';
+        fetch('images/square.svg')
+            .then(response => response.text())
+            .then(svgText => {
+                button.innerHTML = svgText;
+            });
         // button.innerHTML = '';
         // button.style.opacity = '';
     });
