@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => {
                     // Показываем сообщение о проигрыше
                     if (window.showGameStateMessage) {
-                        window.showGameStateMessage(false, 3000);
+                        window.showGameStateMessage(false, 2300);
                     }
 
                     revealAllTraps();

@@ -139,11 +139,3 @@ button{font-family:var(--font-body-font-family);}
 :root:not(.showScrollbar) ::-moz-scrollbar-thumb{border-radius:var(--border-radius);background-color:var(--thumb-color-active);}
 :root:not(.showScrollbar) ::-moz-scrollbar-button{display:none;}
 :root:not(.showScrollbar) ::-moz-scrollbar-corner{display:none;}
-/*! CSS Used from: Embedded ; media=all */
-@media all{
-svg{transform:scaleX(-1);}
-}
-/*! CSS Used from: Embedded ; media=all */
-@media all{
-svg{transform:scaleX(-1);}
-}

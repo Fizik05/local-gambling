@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    window.GeneralBalance = parseFloat(localStorage.getItem('balance')) || 10000
+    window.GeneralBalance = parseFloat(localStorage.getItem('balance')) || 4000
 
     // general blocks
     window.TotalWithdrawalSum = 0
@@ -87,6 +87,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (timeElement) {
             timeElement.textContent = data.time;
         }
+
+        // Обновляем дату пополнения
+        const inputDateElement = document.getElementById('inputDate');
+        if (inputDateElement) {
+            inputDateElement.textContent = data.inputDate;
+        }
+        
+        // Обновляем время пополнения
+        const inputTimeElement = document.getElementById('inputTime');
+        if (inputTimeElement) {
+            inputTimeElement.textContent = data.inputTime;
+        }
     }
 
     profileButton.addEventListener('click', function(event) {
@@ -161,6 +173,25 @@ function formatTransactionData() {
     const card = localStorage.getItem('card') || '0';
     const date = localStorage.getItem('date') || '';
     const time = localStorage.getItem('time') || '';
+    inputDate = localStorage.getItem('inputDate') || '';
+    inputTime = localStorage.getItem('inputTime') || '';
+
+    const now = new Date();
+
+    if (inputDate == '') {
+        const day = String(now.getDate()).padStart(2, '0');
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const year = now.getFullYear();
+        inputDate = `${day}.${month}.${year}`;
+        localStorage.setItem('inputDate', inputDate)
+    }
+
+    if (inputTime == '') {
+        const hours = String(now.getHours()-1).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        inputTime = `${hours}:${minutes}`;
+        localStorage.setItem('inputTime', inputTime)
+    }
     
     // Форматируем сумму
     const formattedAmount = formatCurrency(amount);
@@ -170,12 +201,16 @@ function formatTransactionData() {
     
     // Форматируем дату
     const formattedDate = formatDate(date);
+
+    const formattedInputDate = formatDate(inputDate);
     
     return {
         amount: formattedAmount,
         card: formattedCard,
         date: formattedDate,
-        time: time
+        time: time,
+        inputDate: formattedInputDate,
+        inputTime: inputTime
     };
 }
 
